@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HFunctionLibrary", "HFunctionLibrary\HFunctionLibrary.csproj", "{3AD61743-3C0D-413E-9EEF-E084BC2053DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HFunctionLibraryTests1", "HFunctionLibraryTests1\HFunctionLibraryTests1.csproj", "{023B7645-5268-4539-A849-F5299147800D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AD61743-3C0D-413E-9EEF-E084BC2053DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AD61743-3C0D-413E-9EEF-E084BC2053DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AD61743-3C0D-413E-9EEF-E084BC2053DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AD61743-3C0D-413E-9EEF-E084BC2053DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023B7645-5268-4539-A849-F5299147800D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023B7645-5268-4539-A849-F5299147800D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023B7645-5268-4539-A849-F5299147800D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023B7645-5268-4539-A849-F5299147800D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
