@@ -12,7 +12,7 @@ namespace HFunctionLibrary
 {
     #region 影像相關功能
 
-    public class ImageHndler
+    public class ImageHandler
     {
         private int getPageCount(String fileName)
         {
@@ -90,7 +90,7 @@ namespace HFunctionLibrary
         /// </summary>
         public bool TIFtoPDF(List<string> FilePath)
         {
-            ImageHndler tiff = new ImageHndler();
+            ImageHandler tiff = new ImageHandler();
 
             bool res = false;
 
