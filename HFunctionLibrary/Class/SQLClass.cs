@@ -137,6 +137,8 @@ namespace HFunctionLibrary
 
         #endregion
 
+
+
         /*
          * 1. Oracle 取得DataTable
          * 2. 兩張Table Left_Join
