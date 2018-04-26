@@ -12,6 +12,7 @@ using System.Drawing.Imaging;
 using Ionic.Zip;
 using System.Net;
 using System.Globalization;
+using System.Web.UI.WebControls;
 
 namespace HFunctionLibrary
 {
@@ -269,5 +270,25 @@ namespace HFunctionLibrary
             }
         }
         #endregion
+
+        public bool UploadFile(FileUpload FileUpload1, string PDFPath)
+        {
+            bool result = false;
+            try
+            {
+                if (FileUpload1.HasFile)
+                {
+                    FileUpload1.SaveAs(PDFPath);
+
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
+            return result;
+        }
     }
 }

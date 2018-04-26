@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,13 +40,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.3.1\lib\net40\AspNet.ScriptManager.jQuery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined, Version=1.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.12.1\lib\net40\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DotNetZip">
       <HintPath>..\..\cgcis(本尊)\Web\CIS\bin\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\..\cgcis(本尊)\Web\CIS\bin\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PdfSharp">
       <HintPath>..\..\cgcis(本尊)\Web\CIS\bin\PdfSharp.dll</HintPath>
     </Reference>
@@ -54,6 +75,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -68,15 +91,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="AspNet.ScriptManager.jQuery">
-      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.8.2\lib\net40\AspNet.ScriptManager.jQuery.dll</HintPath>
-    </Reference>
-    <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined">
-      <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.8.24\lib\net40\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
@@ -121,7 +135,18 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Content\jquery.jqGrid\ellipsis-xbl.xml" />
+    <Content Include="Content\jquery.jqGrid\ui.jqgrid.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -132,50 +157,28 @@
     <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
     <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\base\jquery.ui.all.css" />
-    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\base\jquery.ui.base.css" />
-    <Content Include="Content\themes\base\jquery.ui.button.css" />
-    <Content Include="Content\themes\base\jquery.ui.core.css" />
-    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\base\jquery.ui.slider.css" />
-    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\base\jquery.ui.theme.css" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="DownloadFile.aspx" />
     <Content Include="GridViewUI.aspx" />
     <Content Include="Images\accent.png" />
@@ -194,16 +197,69 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
-    <Content Include="Scripts\jquery-ui-1.8.24.js" />
-    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="WebServiceTable.asmx" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\i18n\grid.locale-ar.js" />
+    <Content Include="Scripts\i18n\grid.locale-bg.js" />
+    <Content Include="Scripts\i18n\grid.locale-bg1251.js" />
+    <Content Include="Scripts\i18n\grid.locale-cat.js" />
+    <Content Include="Scripts\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\i18n\grid.locale-cs.js" />
+    <Content Include="Scripts\i18n\grid.locale-da.js" />
+    <Content Include="Scripts\i18n\grid.locale-de.js" />
+    <Content Include="Scripts\i18n\grid.locale-dk.js" />
+    <Content Include="Scripts\i18n\grid.locale-el.js" />
+    <Content Include="Scripts\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\i18n\grid.locale-es.js" />
+    <Content Include="Scripts\i18n\grid.locale-fa.js" />
+    <Content Include="Scripts\i18n\grid.locale-fi.js" />
+    <Content Include="Scripts\i18n\grid.locale-fr.js" />
+    <Content Include="Scripts\i18n\grid.locale-gl.js" />
+    <Content Include="Scripts\i18n\grid.locale-he.js" />
+    <Content Include="Scripts\i18n\grid.locale-hr.js" />
+    <Content Include="Scripts\i18n\grid.locale-hr1250.js" />
+    <Content Include="Scripts\i18n\grid.locale-hu.js" />
+    <Content Include="Scripts\i18n\grid.locale-id.js" />
+    <Content Include="Scripts\i18n\grid.locale-is.js" />
+    <Content Include="Scripts\i18n\grid.locale-it.js" />
+    <Content Include="Scripts\i18n\grid.locale-ja.js" />
+    <Content Include="Scripts\i18n\grid.locale-kr.js" />
+    <Content Include="Scripts\i18n\grid.locale-lt.js" />
+    <Content Include="Scripts\i18n\grid.locale-mne.js" />
+    <Content Include="Scripts\i18n\grid.locale-nl.js" />
+    <Content Include="Scripts\i18n\grid.locale-no.js" />
+    <Content Include="Scripts\i18n\grid.locale-pl.js" />
+    <Content Include="Scripts\i18n\grid.locale-pt-br.js" />
+    <Content Include="Scripts\i18n\grid.locale-pt.js" />
+    <Content Include="Scripts\i18n\grid.locale-ro.js" />
+    <Content Include="Scripts\i18n\grid.locale-ru.js" />
+    <Content Include="Scripts\i18n\grid.locale-sk.js" />
+    <Content Include="Scripts\i18n\grid.locale-sr-latin.js" />
+    <Content Include="Scripts\i18n\grid.locale-sr.js" />
+    <Content Include="Scripts\i18n\grid.locale-sv.js" />
+    <Content Include="Scripts\i18n\grid.locale-th.js" />
+    <Content Include="Scripts\i18n\grid.locale-tr.js" />
+    <Content Include="Scripts\i18n\grid.locale-tw.js" />
+    <Content Include="Scripts\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\i18n\grid.locale-vi.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.jqGrid.js" />
+    <Content Include="Scripts\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Scripts\_references.js" />
     <Content Include="Site.Mobile.Master" />
     <None Include="Web.Debug.config">
@@ -253,6 +309,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Class\ImageHandler.cs" />
     <Compile Include="Class\LogHandler.cs" />
+    <Compile Include="Class\PagedList.cs" />
     <Compile Include="Class\SQLClass.cs" />
     <Compile Include="Class\StringHandler.cs" />
     <Compile Include="Class\UtilityFunctions.cs" />
@@ -273,6 +330,49 @@
     <Compile Include="GridViewUI.aspx.designer.cs">
       <DependentUpon>GridViewUI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\BurnTable.cs" />
+    <Compile Include="Model\CaseHistorField.cs" />
+    <Compile Include="Model\CaseHistorTable1.cs" />
+    <Compile Include="Model\CaseHistorTable2.cs" />
+    <Compile Include="Model\CaseHistorTable4.cs" />
+    <Compile Include="Model\CaseHistorTable5.cs" />
+    <Compile Include="Model\CaseHistorView.cs" />
+    <Compile Include="Model\CaseHistorViewRn.cs" />
+    <Compile Include="Model\CaseTable.cs" />
+    <Compile Include="Model\CaseTypeTable.cs" />
+    <Compile Include="Model\CheckedUserTable.cs" />
+    <Compile Include="Model\ClassTable.cs" />
+    <Compile Include="Model\ClientInfo.cs" />
+    <Compile Include="Model\CopyFieldType.cs" />
+    <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\FieldType1.cs" />
+    <Compile Include="Model\FieldType2.cs" />
+    <Compile Include="Model\FieldType3.cs" />
+    <Compile Include="Model\FieldTypeName.cs" />
+    <Compile Include="Model\FileTable.cs" />
+    <Compile Include="Model\GroupCaseTypeTable.cs" />
+    <Compile Include="Model\GroupClassTable.cs" />
+    <Compile Include="Model\GroupPrivilegeTable.cs" />
+    <Compile Include="Model\GroupTable.cs" />
+    <Compile Include="Model\HISPatDataChg.cs" />
+    <Compile Include="Model\HISViewCtrl.cs" />
+    <Compile Include="Model\IDTable.cs" />
+    <Compile Include="Model\ImageNoteTable.cs" />
+    <Compile Include="Model\ItemTable.cs" />
+    <Compile Include="Model\LogTable.cs" />
+    <Compile Include="Model\MessageGroupTable.cs" />
+    <Compile Include="Model\MessageTable.cs" />
+    <Compile Include="Model\ModelContext.cs" />
+    <Compile Include="Model\NewsTable.cs" />
+    <Compile Include="Model\PageTable.cs" />
+    <Compile Include="Model\Privilege.cs" />
+    <Compile Include="Model\StorePathTable.cs" />
+    <Compile Include="Model\SystemTable.cs" />
+    <Compile Include="Model\UserGroupTable.cs" />
+    <Compile Include="Model\UserRegQryDTable.cs" />
+    <Compile Include="Model\UserRegQryMTable.cs" />
+    <Compile Include="Model\UserTable.cs" />
+    <Compile Include="Model\ZRedSch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -294,6 +394,10 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebServiceTable.asmx.cs">
+      <DependentUpon>WebServiceTable.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

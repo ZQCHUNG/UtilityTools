@@ -140,8 +140,6 @@ namespace HFunctionLibrary
             return res;
         }
 
-
-
         /// <summary>
         /// Gray 轉灰階
         /// <param name="SourceBitmap">SourceBitmap SourceBitmap:來源圖檔</param>
