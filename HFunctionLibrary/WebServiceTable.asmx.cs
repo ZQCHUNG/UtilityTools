@@ -1,5 +1,6 @@
 ﻿using HFunctionLibrary.Class;
 using HFunctionLibrary.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -26,11 +27,18 @@ namespace HFunctionLibrary
         [ScriptMethod]
         public string GetListOfPersons()
         {
-            var User = dbContext.UserTable.ToList();
+            var User = from ut in dbContext.UserTable
+                       select new
+                       {
+                           ut.UserID,
+                           ut.UserName,
+                           ut.RealName,
+                           ut.Comments
+                       };
 
-            List<UserTable> persons = User;
-            return Newtonsoft.Json.JsonConvert.SerializeObject(
-                new PagedList(persons, persons.Count, 1, persons.Count));
+            string JsonFormate = JsonConvert.SerializeObject(User, Formatting.Indented);
+
+            return JsonFormate;
         }
     }
 }
